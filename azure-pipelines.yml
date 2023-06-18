@@ -1,1 +1,17 @@
-fwef
+trigger:   # any changes in main branch will trigger the pipeline   
+- main
+
+pool:   # defines where our pipeline will be executed
+    vmImage: 'ubuntu-latest'
+
+stages:
+- stage: BuildApp
+  jobs:
+  - job: BuildPushImage
+    steps:
+    - task: Docker@2    # taken from Project settings->Service Connections
+      inputs:
+        containerRegistry: 'Azure_Automation'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(Build.BuildId)'
