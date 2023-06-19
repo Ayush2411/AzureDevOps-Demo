@@ -11,7 +11,7 @@ stages:
     steps:
     - task: Docker@2    # taken from Project settings->Service Connections
       inputs:
-        containerRegistry: 'Azure_Automation'
+        containerRegistry: 'Azure_Docker'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(Build.BuildId)'
