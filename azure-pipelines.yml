@@ -2,16 +2,11 @@ trigger:   # any changes in main branch will trigger the pipeline
 - main
 
 pool:   # defines where our pipeline will be executed
-    vmImage: 'ubuntu-latest'
+    vmImage: 'macOS-latest'
 
 stages:
 - stage: BuildApp
   jobs:
-  - job: BuildPushImage
+  - job: macOS
     steps:
-    - task: Docker@2    # taken from Project settings->Service Connections
-      inputs:
-        containerRegistry: 'Azure_Docker'
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
-        tags: '$(Build.BuildId)'
+    - script: echo hello from macOS
