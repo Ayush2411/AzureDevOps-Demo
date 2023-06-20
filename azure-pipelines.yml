@@ -2,11 +2,11 @@ trigger:   # any changes in main branch will trigger the pipeline
 - main
 
 pool:   # defines where our pipeline will be executed
-    vmImage: 'macOS-latest'
+    vmImage: 'windows-latest'
 
 stages:
 - stage: BuildApp
   jobs:
-  - job: macOS
+  - job: windowsOS
     steps:
     - script: echo hello from macOS
