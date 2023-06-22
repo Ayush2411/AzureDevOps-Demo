@@ -2,7 +2,8 @@ trigger:   # any changes in main branch will trigger the pipeline
 - main
 
 pool:   # defines where our pipeline will be executed
-    vmImage: 'windows-latest'
+  name: 'default'
+  vmImage: 'SHUBH-PC'
 
 stages:
 - stage: BuildApp
