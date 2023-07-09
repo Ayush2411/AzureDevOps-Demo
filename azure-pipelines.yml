@@ -10,4 +10,4 @@ stages:
   jobs:
   - job: windowsOS
     steps:
-    - script: echo hello from macOS
+    - script: echo hello from Windows
